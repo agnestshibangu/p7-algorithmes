@@ -1,0 +1,53 @@
+Algorithme calculGain qui prend en paramètre le tableau d'action 
+(chaque ligne correspond à une action et contient son titre, son coût 
+et son taux de bénéfice)
+
+    on initialise un tableau globalArray vide = []
+    
+    POUR chaque tuple au sein du tableau : 
+        valeur = tuple[0]
+        pourcentage = tuple[1]
+        plus value nette = valeur + (pourcentage/100 * valeur)
+        on ajoute la valeur nette au tuple concerné 
+        on ajoute le tuple contenant maintenant trois valeur au tableau globalArray
+
+ 
+-------------------------------
+
+
+Algorithme testSampleSizeSolution qui prend en paramètre le tableau 
+renvoyé par la fonction calculGain
+
+    on initialise un tableau possibleSolutions vide = []
+    
+    POUR chaque i compris entre 20 et 1 dans l'ordre décroissant : 
+        
+        POUR une combinaison parmis toutes les combinaisons possibles au sein de l'échantillon : 
+        on initialise une variable somme à 0 sum = 0 
+         
+           POUR chaque valeur au sein d'une combinaison : 
+                y[0] représente le coût initiale d'une action
+                on additionne y[0] à la sum totale --> sum = sum + y[0]
+            SI la somme retournée est inférieure à 500€ :
+                on ajoute la combinaison au tableau des solutions possibles
+            SI la longueur du tableau possibleSolutions est supérieure à 0 : 
+                on affiche et on retourne le tableau contenant les différentes solutions
+
+
+-------------------------------
+
+Algorithme findMaxGain qui prend en paramètre le tableau solutions renvoyé par
+la fonction testSampleSizeSolution
+
+    on initialise une variable bestSolution à 0 
+    
+    POUR chaque solution dans le tableau solutions :
+        on initialise une variable total à 0
+        
+        POUR chaque action dans singleSolution : 
+            la plus value nette est égale à action[2]
+            on additionne la plus value nette à la sum totale --> total = total + plus value nette
+        IF le total retourné est supérieur à la meilleur solution : 
+            le total de cette combinaison devient la meilleure solution
+            la solution selectionnée devient la solution courante
+

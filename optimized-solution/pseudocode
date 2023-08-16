@@ -1,0 +1,30 @@
+Algorithme calculGain qui prend en paramètre le tableau d'action 
+(chaque ligne correspond à une action et contient son titre, son coût 
+et son taux de bénéfice)
+
+    on initialise un tableau globalArray vide = []
+    POUR chaque tuple au sein du tableau : 
+        valeur = tuple[0]
+        pourcentage = tuple[1]
+        plus value nette = valeur + (pourcentage/100 * valeur)
+        on ajoute la valeur nette au tuple concerné 
+        on ajoute le tuple contenant maintenant trois valeur au tableau globalArray
+
+ 
+-------------------------------
+
+Algorithme testSampleSizeSolution qui prend en paramètre le tableau 
+renvoyé par la fonction calculGain
+
+    on initialise un tableau possibleSolutions vide = []
+   
+    POUR chaque i compris entre 20 et 1 dans l'ordre décroissant : 
+       
+        POUR une combinaison parmis toutes les combinaisons possibles au sein de l'échantillon : 
+        on initialise une variable somme à 0 sum = 0 
+           
+            POUR chaque valeur au sein d'une combinaison : 
+                y[0] représente le coût initiale d'une action
+                on additionne y[0] à la sum totale --> sum = sum + y[0]
+            SI la somme retournée est inférieure à 500€ :
+                la première solution qui rempli ce critère est selectionnée
